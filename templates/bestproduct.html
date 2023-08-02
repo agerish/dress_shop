@@ -1,0 +1,45 @@
+
+{% load static %}
+
+<section id="popular-courses" class="courses">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>TOP 10 </h2>
+          <p>Les meilleurs produits sur le marche</p>
+        </div>
+
+        <div class="row" data-aos="zoom-in" data-aos-delay="100">
+{% for toptop in toptops %}
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <div class="course-item">
+              <img src="{{toptop.imageDuProduit.url}}" class="img-fluid" alt="...">
+              <div class="course-content">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <a href="{% url 'top' %}" ><h4>{{toptop.nom}}</h4></a>
+                  <p class="price">{{toptop.prix}}</p>
+                </div>
+
+                <h3>{{toptop.description}}</h3>
+                <div class="trainer d-flex justify-content-between align-items-center">
+                  <div class="trainer-profile d-flex align-items-center">
+                    <a href="{% url 'trainer' %}"><img src="{{toptop.imageDuPartenaire.url}}" class="img-fluid" alt="#" style="border-radius:50%;"></a>
+                    <span>{{toptop.nom_du_partenaire}}</span>
+                  </div>
+                  <div class="trainer-rank d-flex align-items-center">
+                    <i class="bx bx-user"></i>&nbsp;
+                    &nbsp;&nbsp;
+                    <i class="bx bx-heart"></i>&nbsp;
+                    &nbsp;
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> <!-- End Course Item-->
+{% endfor %}
+
+        </div>
+
+      </div>
+    </section><

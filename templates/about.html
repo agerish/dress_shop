@@ -1,0 +1,63 @@
+{% extends 'bas.html' %}
+
+
+{% block content %}
+{% load static %}
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="{% static 'assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="{% static 'assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="{% static 'assets/css/style.css" rel="stylesheet">
+
+
+
+
+ <section id="about" class="about">
+      <div class="container-fluid" data-aos="fade-up">
+{% for pairede in pairedes %}
+ <div class="breadcrumbs" data-aos="fade-in" style="margin-top:20rem;">
+      <div class="container-fluid">
+        <h2>A propos de nous </h2>
+        <p>{{pairede.introduction}} </p>
+      </div>
+    </div>
+
+        <div class="row" style=" display:flex;
+    justify-content:center;
+    margin-top:nome;
+    color:blue;
+    box-shadow:2px 3px 6px pink;
+    background-color:white;">
+          <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
+            <img src="{{pairede.tonImage.url}}" style="" class="img-fluid" alt="image">
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
+            <h3>{{pairede.description}}</h3>
+            <p class="fst-italic">
+                {{pairede.developpement}}
+            </p>
+            <p>
+            {{pairede.developpement1}}
+            </p>
+
+          </div>
+        </div>
+{% endfor %}
+      </div>
+
+
+    </section>
+
+
+
+{% include 'bestproduct.html' %}
+
+
+
+
+{% endblock %}
